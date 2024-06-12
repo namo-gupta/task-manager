@@ -8,6 +8,8 @@ import './App.css';
 const App = () => {
   const [tasks, setTasks] = useState(loadTasks());
   const [editingTask, setEditingTask] = useState(null);
+  const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState(null);
 
   useEffect(() => {
     saveTasks(tasks);
@@ -34,6 +36,14 @@ const App = () => {
     );
   };
 
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+  };
+
+  const handleSortChange = (newSort) => {
+    setSort(newSort);
+  };
+
   return (
     <div className="app">
       <header>
@@ -42,9 +52,16 @@ const App = () => {
           <TaskForm onAdd={addTask} />
         </div>
       </header>
-      {/* <h1>Todo App</h1> */}
-      {/* <TaskForm onAdd={addTask} /> */}
-      <TaskList tasks={tasks} onEdit={setEditingTask} onDelete={deleteTask} onComplete={completeTask}/>
+      <TaskList 
+        tasks={tasks} 
+        filter={filter} 
+        sort={sort} 
+        onEdit={setEditingTask} 
+        onDelete={deleteTask} 
+        onComplete={completeTask} 
+        onFilterChange={handleFilterChange}
+        onSortChange={handleSortChange}
+      />
       {editingTask && (
         <EditTaskModal task={editingTask} onSave={saveTask} onClose={() => setEditingTask(null)} />
       )}

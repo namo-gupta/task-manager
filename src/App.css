@@ -3,14 +3,14 @@
 }
 
 .app .header-content{
-  padding: 30px 0px;
+  padding: 30px 10px;
   background: linear-gradient(270deg, #f37021 1.91%, #ef414a 48.18%, #ed0c6e 95.42%);
 }
 
 .header-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .app-name{
@@ -148,4 +148,9 @@ input[type="checkbox"] {
 .priority-tag.low {
   background-color: #4caf50;
   border: 1px solid #4caf50;
+}
+@media (max-width: 580px) {
+  .modal-content form{
+    width: 320px;
+  }
 }
