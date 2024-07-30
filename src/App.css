@@ -54,7 +54,16 @@
 
 .task-content {
   padding-left: 20px;
-  text-align: left
+  text-align: left;
+  overflow: hidden;
+  width: 120px;
+  text-overflow: ellipsis;
+}
+
+.task-content h3{
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .task-actions {
